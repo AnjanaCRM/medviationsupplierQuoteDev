@@ -23,7 +23,7 @@ function App()
   const API_URL="https://crmapay-developer-edition.na213.force.com/InteractPay/services/apexrest/MedviationAuthorization?methodType=GET&inputParams="+JSON.stringify(params);
   console.log(API_URL);
   console.log('Hello');
-  const instance=axios.create({baseUrl:API_URL})
+  //const instance=axios.create({baseUrl:API_URL})
   useEffect( ()=>
   {
     axios.get(API_URL).then((response)=>{
@@ -37,6 +37,7 @@ function App()
     finalReq=dataReqArray[0].oppdetails;
     console.log('Data Resp(final):' + JSON.stringify(finalReq));
     setRequestState(finalReq);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   } )},[]);
   var divStyle = {
     padding:"5px"
