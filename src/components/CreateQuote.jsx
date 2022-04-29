@@ -8,6 +8,9 @@ import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 function CreateQuote(props)
 {
+  this.isdiabled=true;
+  sessionStorage.getItem("isQuoteCreated"); 
+
 const[form,setForm]=useState(
     {AircraftType:'Jet',Price:0.00,ProviderNotes:'',NoStops:0,AddPassenger:0,traveldate:'',DurationHour:'',DurationMin:'',MedicalCrew:'',GroundTransport:false,RequestId:''}
     );
@@ -188,7 +191,7 @@ sessionStorage.setItem("isQuoteCreated","Yes");
     </label>
     <br></br>
     <div>
-    <button className="CreateQuoteButton">Create Quote</button>
+    <button className="CreateQuoteButton" disabled={!this.isdiabled}>Create Quote</button>
     </div>
     </form>
     </div>
