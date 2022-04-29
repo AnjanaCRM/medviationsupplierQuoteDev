@@ -1,5 +1,5 @@
 import axios from 'axios';
-import React, { useState } from 'react'
+import React, { useEffect,useState } from 'react'
 import './CreateQuote.css'
 // Importing toastify module
 import {toast} from 'react-toastify';
@@ -8,8 +8,14 @@ import 'react-toastify/dist/ReactToastify.css';
 toast.configure()
 function CreateQuote(props)
 {
-  this.isdiabled=true;
-  sessionStorage.getItem("isQuoteCreated"); 
+  const [disable, setDisable] = React.useState(false);
+  //const [CreateQuoteButton, setCls] = useState("green");
+
+ useEffect(() => {
+  if (sessionStorage.getItem("isQuoteCreated") ==='Yes') {
+    setDisable(true)
+  }
+ }, []);
 
 const[form,setForm]=useState(
     {AircraftType:'Jet',Price:0.00,ProviderNotes:'',NoStops:0,AddPassenger:0,traveldate:'',DurationHour:'',DurationMin:'',MedicalCrew:'',GroundTransport:false,RequestId:''}
@@ -32,6 +38,9 @@ const[form,setForm]=useState(
     //console.log('final:' + final);
     const POST_URL='https://crmapay-developer-edition.na213.force.com/InteractPay/services/apexrest/MedviationAuthorization?methodType=POST&inputParams=' + JSON.stringify(inputParams);
    console.log('URL:' + POST_URL);
+   setDisable(true)
+  //  let element = document.getElementById('button')
+  //  ReactDOM.findDOMNode(element).style.backgroundColor = this.state.isClicked?'black' : 'white'
 //      Axios.post(POST_URL)
 //      .then(res=>console.log('Posting Data:'+res))
 //      .catch(err=>console.log('Error:' + err));
@@ -48,10 +57,7 @@ fetch(POST_URL, {
     console.log(" status-->" + status);
 // eslint-disable-next-line eqeqeq
 if(status){
-  // Access value associated with the key
-//var item_value = sessionStorage.getItem("item_key");
 
-// Assign value to a key
 sessionStorage.setItem("isQuoteCreated","Yes"); 
     if(props.supplierStatus === 'Approved'){
 
@@ -94,6 +100,7 @@ sessionStorage.setItem("isQuoteCreated","Yes");
      const {value,name,type,checked}=e.target;
      setForm((state) =>({...state,[name]:type==='checkbox' ? checked :value}));
      form.ExpirationHour="36";
+     
      //console.log('Final Data:' + JSON.stringify(inputParams));
  }
   return (
@@ -191,7 +198,7 @@ sessionStorage.setItem("isQuoteCreated","Yes");
     </label>
     <br></br>
     <div>
-    <button className="CreateQuoteButton" disabled={!this.isdiabled}>Create Quote</button>
+    <button className="CreateQuoteButton" disabled={disable}>Create Quote</button>
     </div>
     </form>
     </div>
