@@ -61,7 +61,6 @@ function App()
                                         className="med-flight-icon" /></span> &nbsp;&nbsp;
                            { requeststate ? data.DestinationDesired__c : ""}
                        </div>
-                       <p>Patient: &nbsp;&nbsp;{ requeststate ? data.PatientName__c : ""} </p>
                        <p>Date Range :&nbsp;&nbsp;{ requeststate ? data.FromDate__c : ""}  &nbsp; &nbsp; <span style={{color:"white"}}>&#x2192;</span> &nbsp; &nbsp;{ requeststate ? data.ToDate__c  : ""} </p>
                        <p>Patient Gender:&nbsp;&nbsp;{ requeststate ? data.PatientGender__c : ""} </p>
                        <p>Patient Age:&nbsp;&nbsp;{requeststate ? data.PatientAge__c : ""}</p>
