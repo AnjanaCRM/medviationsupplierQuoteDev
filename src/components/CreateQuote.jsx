@@ -45,7 +45,13 @@ fetch(POST_URL, {
     console.log(" status-->" + status);
 // eslint-disable-next-line eqeqeq
 if(status){
+  // Access value associated with the key
+//var item_value = sessionStorage.getItem("item_key");
+
+// Assign value to a key
+sessionStorage.setItem("isQuoteCreated","Yes"); 
     if(props.supplierStatus === 'Approved'){
+
       toast.success('Your Quote is submitted succesfully and will be present to the Client', { position: toast.POSITION.TOP_CENTER });
       console.log(" create  quote-->" + status);
     }else{
