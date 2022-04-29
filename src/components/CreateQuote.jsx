@@ -108,13 +108,13 @@ sessionStorage.setItem("isQuoteCreated","Yes");
     <form onSubmit={handleFormSubmit}>
     <label>
         Price
-        <input type="number" name="Price" onChange={onChange} value={form.Price} min="0"  />
+        <input disabled={disable} type="number" name="Price" onChange={onChange} value={form.Price} min="0"  />
     </label>
     <label >Travel Date :
-        <input type="datetime-local" name="traveldate" onChange={onChange} value={form.traveldate} />
+        <input disabled={disable} type="datetime-local" name="traveldate" onChange={onChange} value={form.traveldate} />
     </label>
-    <label> Duration Hour
-        <select name="DurationHour" onChange={onChange} value={form.DurationHour}>
+    <label> Duration(hours)
+        <select disabled={disable} name="DurationHour" onChange={onChange} value={form.DurationHour}>
             <option>0</option>
             <option>1</option>
             <option>2</option>
@@ -142,27 +142,37 @@ sessionStorage.setItem("isQuoteCreated","Yes");
         </select>
     </label>
     <br/>
-    <label> Duration Min
-       <input type="text" name="durationmin" onChange={onChange} value={form.durationmin} min="0" ></input>
+    <label> Duration(minutes)
+       <input disabled={disable} type="text" name="durationmin" onChange={onChange} value={form.durationmin} min="0" ></input>
     </label>
     <label> No of Stops
         <br/>
-        <input type="radio" name="NoStops" value="1" onChange={onChange} />&nbsp;1 Stops &nbsp;&nbsp;
-        <input type="radio" name="NoStops" value="2" onChange={onChange} />&nbsp;2 Stops&nbsp;&nbsp;
-        <input type="radio" name="NoStops" value="3" onChange={onChange} />&nbsp;3+ Stops&nbsp;&nbsp;
+        <input disabled={disable} type="radio" name="NoStops" value="1" onChange={onChange} />&nbsp;1 Stops &nbsp;&nbsp;
+        <input disabled={disable} type="radio" name="NoStops" value="2" onChange={onChange} />&nbsp;2 Stops&nbsp;&nbsp;
+        <input disabled={disable} type="radio" name="NoStops" value="3" onChange={onChange} />&nbsp;3+ Stops&nbsp;&nbsp;
     </label>
     <br/><br/>
     <label> Aircraft Type
         <br/>
         <div>
-          <input type="radio" name="AircraftType" value="Jet" onChange={onChange} />Jet &nbsp;&nbsp;
-          <input type="radio" name="AircraftType" value="Turbo Prop" onChange={onChange} />Turbo&nbsp;&nbsp;
-          <input type="radio" name="AircraftType" value="Rotor" onChange={onChange} />Prop
+          <input disabled={disable} type="radio" name="AircraftType" value="Jet" onChange={onChange} />Jet &nbsp;&nbsp;
+          <input disabled={disable} type="radio" name="AircraftType" value="Turbo Prop" onChange={onChange} />Turbo&nbsp;&nbsp;
+          <input disabled={disable} type="radio" name="AircraftType" value="Rotor" onChange={onChange} />Prop
         </div>
     </label>
     <br/>
-    <label> Expiration Hour
-    <select name="ExpirationHour" onChange={onChange} defaultValue="36" value={form.ExpirationHour}>
+    <label> Expiration(hours)
+    <br/>
+       <input disabled={disable} type="radio" name="12" value="ExpirationHour" onChange={onChange} />&nbsp;12&nbsp;&nbsp;
+        <input disabled={disable} type="radio" name="ExpirationHour" value="24" onChange={onChange} />&nbsp;24&nbsp;&nbsp;
+        <input disabled={disable} type="radio" defaultChecked   name="ExpirationHour" value="36" onChange={onChange} />&nbsp;36&nbsp;&nbsp;
+        <input disabled={disable} type="radio" name="ExpirationHour" value="48" onChange={onChange} />&nbsp;48&nbsp;&nbsp;
+        <input disabled={disable} type="radio" name="ExpirationHour" value="60" onChange={onChange} />&nbsp;60&nbsp;&nbsp;
+        <input disabled={disable} type="radio" name="ExpirationHour" value="72" onChange={onChange} />&nbsp;72&nbsp;&nbsp;
+        <input disabled={disable} type="radio" name="ExpirationHour" value="84" onChange={onChange} />&nbsp;84&nbsp;&nbsp;
+        <input disabled={disable} type="radio" name="ExpirationHour" value="96" onChange={onChange} />&nbsp;96&nbsp;&nbsp;
+        <br/>
+    {/* <select name="ExpirationHour" onChange={onChange} defaultValue="36" value={form.ExpirationHour}>
            <option>12</option>
            <option>36</option>
             <option>24</option>
@@ -171,30 +181,30 @@ sessionStorage.setItem("isQuoteCreated","Yes");
             <option>72</option>
             <option>84</option>
             <option>96</option>
-        </select>
+        </select> */}
         </label>
     <br/>
     <label> Additional Passenger
         <br/>
-          <input type="radio" name="AddPassenger" value="0" onChange={onChange} />&nbsp;No Additional Passengers &nbsp;&nbsp;
-          <input type="radio" name="AddPassenger" value="1" onChange={onChange} />&nbsp;1 Additional Passenger&nbsp;&nbsp;
+          <input disabled={disable} type="radio" name="AddPassenger" value="0" onChange={onChange} />&nbsp;No Additional Passengers &nbsp;&nbsp;
+          <input disabled={disable} type="radio" name="AddPassenger" value="1" onChange={onChange} />&nbsp;1 Additional Passenger&nbsp;&nbsp;
     </label>
   <br/><br/>
    <label> Ground Transport
-        <input  type="checkbox" name="GroundTransport" onChange={onChange} value={form.GroundTransport}></input>
+        <input disabled={disable} type="checkbox" name="GroundTransport" onChange={onChange} value={form.GroundTransport}></input>
     </label>
     <br></br>
     <label> Medical Staff
     <div>
-          <input type="radio" name="MedicalCrew" value="RN_RN" onChange={onChange} />&nbsp;RN & RN &nbsp;
-          <input type="radio" name="MedicalCrew" value="RN_RT" onChange={onChange} />&nbsp;RN & RT&nbsp;
-          <input type="radio" name="MedicalCrew" value="RN_Physician" onChange={onChange} />&nbsp;RN & Physician&nbsp;
-          <input type="radio" name="MedicalCrew" value="RN_Paramedic" onChange={onChange} />&nbsp;RN & Paramedic&nbsp;
+          <input disabled={disable} type="radio" name="MedicalCrew" value="RN_RN" onChange={onChange} />&nbsp;RN & RN &nbsp;
+          <input disabled={disable} type="radio" name="MedicalCrew" value="RN_RT" onChange={onChange} />&nbsp;RN & RT&nbsp;
+          <input disabled={disable} type="radio" name="MedicalCrew" value="RN_Physician" onChange={onChange} />&nbsp;RN & Physician&nbsp;
+          <input disabled={disable} type="radio" name="MedicalCrew" value="RN_Paramedic" onChange={onChange} />&nbsp;RN & Paramedic&nbsp;
         </div>
     </label>
     <br/>
     <label> Provider Notes
-        <textarea name="ProviderNotes" onChange={onChange} value={form.ProviderNotes}></textarea>
+        <textarea name="ProviderNotes" onChange={onChange} disabled={disable} value={form.ProviderNotes}></textarea>
     </label>
     <br></br>
     <div>
