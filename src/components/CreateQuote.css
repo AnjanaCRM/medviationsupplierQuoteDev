@@ -1,0 +1,11 @@
+.alt-content {
+  background: #ededed;
+  padding: 15px 0px;
+}
+p {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 15px;
+}
+.required {
+  color: red;
+}

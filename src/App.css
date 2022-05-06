@@ -1,57 +1,51 @@
-*
-{
+* {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  
 }
+
+.navbar-brand > img {
+  height: 25px;
+}
+
 .App {
-    margin-top:5px;
-    align-items: center;
-    /*justify-content: center;*/
-   }
-.logo
-{
-    position: fixed;
-    left:15px;
-    width:200px;
-    height:41px;
-    color:lightblue;
+  margin-top: 5px;
+  align-items: center;
 }
-.App-banner
-{
+
+.logo {
   position: fixed;
-  top:5px;
-  height:40px;
-  width:100%;
-  background-color:lightblue ;
-  display:flex;
+  left: 15px;
+  width: 200px;
+  height: 41px;
+  color: lightblue;
 }
-.PatientCondition
-{
-  width:450px;
+
+.App-banner {
+  position: fixed;
+  top: 5px;
+  height: 40px;
+  width: 100%;
+  background-color: lightblue;
+  display: flex;
 }
-.App-RequestInfo
-{
-  padding-top:10px;
-  width:500px;
-  border-radius: 10px 10px;
-  background-color: cadetblue;
-  margin-left: 280px;
-  margin-top:55px;
-  padding-left:26px;
-  padding-bottom:10px;
-  font-size: 13px;
+
+.PatientCondition {
+  width: 450px;
 }
-.AppRequestInfoBanner
-{
-  padding-left:170px;
+
+.App-RequestInfo {
+  background-color: #e1e9f2;
+  margin-top: 80px;
+}
+
+.AppRequestInfoBanner {
+  padding-left: 170px;
   font-size: 12px;
 }
-.requestLocation
-{
-  width: 440px;
-  font-size: 14px;
+
+.alt-bg {
+  background-color: #e1e9f2;
 }
 
 .med-flight-icon {
@@ -59,70 +53,26 @@
   transform: rotate(44deg);
   margin-top: 8px;
 }
-.App-CreateQuote
-{
-  width:500px;
-  margin-left: 280px;
-  margin-top:2px;
-  padding: 16px;
-  background-color: lightcyan;
+input[type="radio"] {
+  padding-left: 5px;
+}
+p {
+  font-family: "Ubuntu", sans-serif;
+  font-size: 15px;
+  margin-bottom: 0;
+}
+.CreateQuoteButton {
+  background-color: #0077b6;
+  color: white;
+  padding: 11px 20px;
+  margin: 14px 0;
+  border: none;
+  cursor: pointer;
+  width: 100%;
+  opacity: 0.9;
+  border-radius: 30px;
 }
 
-input[type=text],textarea,select,checkbox {
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: white;
+.CreateQuoteButton:hover {
+  opacity: 1;
 }
-input[type=checkbox]
-{
-  width: 10%;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  
-  border: none;
-  background: #f1f1f1;
-
-}
-input[type=number]
-{
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: white;
-}
-input[type=datetime-local]
-{
-  width: 100%;
-  padding: 15px;
-  margin: 5px 0 22px 0;
-  display: inline-block;
-  border: none;
-  background: #f1f1f1;
-}
-input[type=radio]
-     {
-      
-      
-      padding-left:5px;
-    }
-
-  .CreateQuoteButton 
-  {
-      background-color: #04AA6D;
-      color: white;
-      padding: 15px 20px;
-      margin: 14px 0;
-      border: none;
-      cursor: pointer;
-      width: 100%;
-      opacity: 0.9;
-      border-radius: 30px;
-    }
-    .CreateQuoteButton:hover {
-      opacity: 1;
-    }
