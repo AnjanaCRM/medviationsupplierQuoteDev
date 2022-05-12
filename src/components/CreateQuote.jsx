@@ -245,7 +245,7 @@ function CreateQuote(props) {
                     value="1"
                     onChange={onChange}
                   />
-                  &nbsp;1 Legs &nbsp;&nbsp;
+                  &nbsp;1 Legs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -253,7 +253,7 @@ function CreateQuote(props) {
                     value="2"
                     onChange={onChange}
                   />
-                  &nbsp;2 Legs&nbsp;&nbsp;
+                  &nbsp;2 Legs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -261,7 +261,7 @@ function CreateQuote(props) {
                     value="3"
                     onChange={onChange}
                   />
-                  &nbsp;3+ Legs&nbsp;&nbsp;
+                  &nbsp;3+ Legs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
               </div>
 
@@ -277,23 +277,23 @@ function CreateQuote(props) {
                       name="AircraftType"
                       value="Jet"
                       onChange={onChange}
-                    />
-                    Jet &nbsp;&nbsp;
+                    />&nbsp;
+                    Jet &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input
                       disabled={disable}
                       type="radio"
                       name="AircraftType"
                       value="Turbo Prop"
                       onChange={onChange}
-                    />
-                    Turbo&nbsp;&nbsp;
+                    />&nbsp;
+                    Turbo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input
                       disabled={disable}
                       type="radio"
                       name="AircraftType"
                       value="Rotor"
                       onChange={onChange}
-                    />
+                    />&nbsp;
                     Prop
                   </div>
                 </div>
@@ -311,7 +311,7 @@ function CreateQuote(props) {
                     value="12"
                     onChange={onChange}
                   />
-                  &nbsp;12&nbsp;&nbsp;
+                  &nbsp;12&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -320,7 +320,7 @@ function CreateQuote(props) {
                     value="24"
                     onChange={onChange}
                   />
-                  &nbsp;24&nbsp;&nbsp;
+                  &nbsp;24&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -330,7 +330,7 @@ function CreateQuote(props) {
                     value="36"
                     onChange={onChange}
                   />
-                  &nbsp;36&nbsp;&nbsp;
+                  &nbsp;36&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -339,7 +339,7 @@ function CreateQuote(props) {
                     value="48"
                     onChange={onChange}
                   />
-                  &nbsp;48&nbsp;&nbsp;
+                  &nbsp;48&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -348,7 +348,7 @@ function CreateQuote(props) {
                     value="60"
                     onChange={onChange}
                   />
-                  &nbsp;60&nbsp;&nbsp;
+                  &nbsp;60&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -357,7 +357,7 @@ function CreateQuote(props) {
                     value="72"
                     onChange={onChange}
                   />
-                  &nbsp;72&nbsp;&nbsp;
+                  &nbsp;72&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -366,7 +366,7 @@ function CreateQuote(props) {
                     value="84"
                     onChange={onChange}
                   />
-                  &nbsp;84&nbsp;&nbsp;
+                  &nbsp;84&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -375,7 +375,7 @@ function CreateQuote(props) {
                     value="96"
                     onChange={onChange}
                   />
-                  &nbsp;96&nbsp;&nbsp;
+                  &nbsp;96&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <br />
                 </div>
               </div>
@@ -392,7 +392,7 @@ function CreateQuote(props) {
                     class="form-check-input"
                     onChange={onChange}
                   />
-                  &nbsp;No Additional Passengers &nbsp;&nbsp;
+                  &nbsp;No Additional Passengers &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -401,7 +401,7 @@ function CreateQuote(props) {
                     class="form-check-input"
                     onChange={onChange}
                   />
-                  &nbsp;1 Additional Passenger&nbsp;&nbsp;
+                  &nbsp;1 Additional Passenger&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 </div>
               </div>
               <div class="row mb-4 px-5">
@@ -433,7 +433,7 @@ function CreateQuote(props) {
                       value="RN_RN"
                       onChange={onChange}
                     />
-                    &nbsp;RN & RN &nbsp;
+                    &nbsp;RN & RN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input
                       disabled={disable}
                       type="radio"
@@ -442,7 +442,7 @@ function CreateQuote(props) {
                       value="RN_RT"
                       onChange={onChange}
                     />
-                    &nbsp;RN & RT&nbsp;
+                    &nbsp;RN & RT&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input
                       disabled={disable}
                       type="radio"
@@ -451,7 +451,7 @@ function CreateQuote(props) {
                       value="RN_Physician"
                       onChange={onChange}
                     />
-                    &nbsp;RN & Physician&nbsp;
+                    &nbsp;RN & Physician&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input
                       disabled={disable}
                       type="radio"
@@ -460,7 +460,7 @@ function CreateQuote(props) {
                       value="RN_Paramedic"
                       onChange={onChange}
                     />
-                    &nbsp;RN & Paramedic&nbsp;
+                    &nbsp;RN & Paramedic&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   </div>
                 </div>
               </div>

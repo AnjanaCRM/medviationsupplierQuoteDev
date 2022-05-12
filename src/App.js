@@ -116,7 +116,8 @@ function App() {
                     <div key={index}>
                       <p className="AppRequestInfoBanner bg-light p-2 text-center " style={{ color: '#0077B6', fontWeight: 'bold' }}> {requeststate ? data.Name : ""}</p>
                       <div className="requestinfo py-2">
-                        <div class="row  text-light pb-3  px-5">
+                        {/* <div class="row  text-light pb-3  px-5"> */}
+                        <div class="row px-5">
                           <div class="col-5" style={{ color: '#485a6f', fontWeight: 'bold' }}>
                             <i class="fa fa-map-marker me-lg-3" aria-hidden="true"></i>{requeststate ? data.OriginDesired__c : ""}
                           </div>
@@ -127,7 +128,8 @@ function App() {
                             {requeststate ? data.DestinationDesired__c : ""}
                           </div>
                         </div>
-                        <div class="row  text-light pb-3  px-5">
+                        {/* <div class="row  text-light pb-3  px-5"> */}
+                        <div class="row  text-light px-5">
                           <div class="col-6" style={{ color: '#485a6f' }}>
                             <i class="fa fa-calendar-o me-lg-3" aria-hidden="true"></i>{requeststate ? data.FromDate__c : ""}
                           </div>
@@ -135,10 +137,14 @@ function App() {
                             <i class="fa fa-calendar-o me-lg-3" aria-hidden="true"></i>{requeststate ? data.ToDate__c : ""}
                           </div>
                         </div>
-                        <p class=' alt-bg  px-5' style={{ color: '#485a6f' }}><i class="fa fa-transgender me-lg-3" aria-hidden="true"></i>Patient Gender:&nbsp;&nbsp;{requeststate ? data.PatientGender__c : ""} </p>
-                        <p class=' px-5' style={{ color: '#485a6f' }}><i class="fa fa-calendar me-lg-3" aria-hidden="true"></i>Patient Age:&nbsp;&nbsp;{requeststate ? data.PatientAge__c : ""}</p>
-                        <p class=' alt-bg  px-5' style={{ color: '#485a6f' }}><i class="fa fa-cube me-lg-3" aria-hidden="true"></i>Patient Weight:&nbsp;&nbsp;{requeststate ? data.PatientWeight__c : ""} &nbsp;lbs</p>
-                        <p className="PatientCondition   px-5" style={{ color: '#485a6f' }}><i class="fa fa-wheelchair-alt me-lg-3" aria-hidden="true"></i>Patient Condition:{requeststate ? data.PatientCondition__c : ""}</p>
+                        <p class=' alt-bg  px-5' style={{ color: '#485a6f' }}><i class="fa fa-transgender me-lg-3" aria-hidden="true"></i>Patient Gender:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{requeststate ? data.PatientGender__c : ""} </p>
+                        <p class=' px-5' style={{ color: '#485a6f' }}><i class="fa fa-calendar me-lg-3" aria-hidden="true"></i>Patient Age:   &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{requeststate ? data.PatientAge__c : ""}</p>
+                        <p class=' alt-bg  px-5' style={{ color: '#485a6f' }}><i class="fa fa-cube me-lg-3" aria-hidden="true"></i>Patient Weight:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{requeststate ? data.PatientWeight__c : ""} &nbsp;lbs</p>
+                        <p className="PatientCondition   px-5" style={{ color: '#485a6f' }}><i class="fa fa-wheelchair-alt me-lg-3" aria-hidden="true"></i>Patient Condition:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{requeststate ? data.PatientCondition__c : ""}</p>
                       </div>
                     </div>
                   </>
