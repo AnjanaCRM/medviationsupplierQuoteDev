@@ -41,7 +41,9 @@ function CreateQuote(props) {
     form.SupplierId = props.SupplierId;
     form.SupplierContactId = props.SupplierContactId;
     form.paymentLinkId = props.paymentLinkId;
-
+    if(!form.ExpirationHour){
+      form.ExpirationHour='36';
+    }
     console.log("Form Submit" + JSON.stringify(form));
     inputParams.push(form);
     console.log("Final Data:" + JSON.stringify(inputParams));
@@ -49,7 +51,7 @@ function CreateQuote(props) {
       "https://crmapay-developer-edition.na213.force.com/InteractPay/services/apexrest/MedviationAuthorization?methodType=POST&inputParams=" +
       JSON.stringify(inputParams);
     console.log("URL:" + POST_URL);
-    setDisable(true);
+    
 
     fetch(POST_URL, {
       method: "GET",
@@ -64,6 +66,7 @@ function CreateQuote(props) {
         console.log(" status-->" + status);
 
         if (status) {
+          setDisable(true);
           if (props.supplierStatus == "Approved") {
             setsupplierStatus(true);
             setcontent(true);
@@ -81,10 +84,10 @@ function CreateQuote(props) {
         }
       })
       .catch((err) => {
-        toast.success(
-          "Your Quote is submitted successfully. But, it can not be presented to the Client. Please sign-up to Medviation Platform to present your Quotes to the Client",
-          { position: toast.POSITION.TOP_CENTER }
-        );
+        // toast.success(
+        //   "Your Quote is submitted successfully. But, it can not be presented to the Client. Please sign-up to Medviation Platform to present your Quotes to the Client",
+        //   { position: toast.POSITION.TOP_CENTER }
+        // );
         console.log("err" + err);
       });
   };
@@ -95,7 +98,7 @@ function CreateQuote(props) {
       ...state,
       [name]: type === "checkbox" ? checked : value,
     }));
-    form.ExpirationHour = "36";
+    //form.ExpirationHour = "36";
   };
 
   return (
@@ -242,7 +245,7 @@ function CreateQuote(props) {
                     disabled={disable}
                     type="radio"
                     name="NoStops"
-                    value="1"
+                    value="0"
                     onChange={onChange}
                   />
                   &nbsp;1 Legs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -250,10 +253,18 @@ function CreateQuote(props) {
                     disabled={disable}
                     type="radio"
                     name="NoStops"
-                    value="2"
+                    value="1"
                     onChange={onChange}
                   />
                   &nbsp;2 Legs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input
+                    disabled={disable}
+                    type="radio"
+                    name="NoStops"
+                    value="2"
+                    onChange={onChange}
+                  />
+                  &nbsp;3 Legs&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                   <input
                     disabled={disable}
                     type="radio"
@@ -409,14 +420,34 @@ function CreateQuote(props) {
                   <label> Ground Transport <span class="required">*</span></label>
                 </div>
                 <div class="col-8 p-0">
-                  <input
+                  {/* <input
                     disabled={disable}
                     type="checkbox"
                     class="form-check-input"
                     name="GroundTransport"
                     onChange={onChange}
                     value={form.GroundTransport}
-                  ></input>
+                  ></input> */}
+                  <input
+                    disabled={disable}
+                    type="radio"
+                    name="GroundTransport"
+                    value="false"
+                    defaultChecked
+                    class="form-check-input"
+                    onChange={onChange}    
+                  />
+                  &nbsp;Not included&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                  <input
+                    disabled={disable}
+                    type="radio"
+                    name="GroundTransport"
+                    value="true"
+                    class="form-check-input"
+                    onChange={onChange}    
+                  />
+                  &nbsp;Included&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+
                 </div>
               </div>
               <div class="row mb-4 alt-content px-5">
