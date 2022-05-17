@@ -25,7 +25,7 @@ function App() {
   params.requestId = inputRequestId;
   params.linkId = linkId;  
 
-  const API_URL = "https://crmapay-developer-edition.na213.force.com/InteractPay/services/apexrest/MedviationAuthorization?methodType=GET&inputParams=" + JSON.stringify(params);
+  const API_URL = "http://developer-crmapay.cs214.force.com/InteractPay/services/apexrest/MedviationAuthorization?methodType=GET&inputParams=" + JSON.stringify(params);
   console.log(API_URL);
   
   useEffect(() => {
