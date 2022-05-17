@@ -48,11 +48,9 @@ function CreateQuote(props) {
     inputParams.push(form);
     console.log("Final Data:" + JSON.stringify(inputParams));
     const POST_URL =
-      "https://crmapay-developer-edition.na213.force.com/InteractPay/services/apexrest/MedviationAuthorization?methodType=POST&inputParams=" +
+      "http://developer-crmapay.cs214.force.com/InteractPay/services/apexrest/MedviationAuthorization?methodType=POST&inputParams=" +
       JSON.stringify(inputParams);
-    console.log("URL:" + POST_URL);
-    
-
+      console.log("URL:" + POST_URL);
     fetch(POST_URL, {
       method: "GET",
       headers: {
