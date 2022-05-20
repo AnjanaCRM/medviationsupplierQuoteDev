@@ -12,7 +12,12 @@ function App() {
   const [requeststate, setRequestState] = useState([])
   const [paymentstate, setPaymentState] = useState([])
   const [linkStatus, setlinkStatus] = React.useState(false);
-
+  
+  let minDate,maxDate;
+  if(requeststate[0]){
+    minDate=requeststate[0].FromDate__c;
+    maxDate=requeststate[0].ToDate__c;
+  }
   const queryParams = new URLSearchParams(window.location.search);
   console.log('request Id:' + queryParams.get("requestId"));
   let inputRequestId = queryParams.get("requestId");
@@ -153,8 +158,7 @@ function App() {
             }
           </div>
           <div className="App-CreateQuote">
-            <CreateQuote requestId={inputRequestId} SupplierId={inputSupplierId} SupplierContactId={inputSupplierContactId} supplierStatus={supplierStatus} paymentLinkId={paymentstate} linkStatus={linkStatus}></CreateQuote>
-          </div>
+          <CreateQuote requestId={inputRequestId} SupplierId={inputSupplierId} SupplierContactId={inputSupplierContactId} supplierStatus={supplierStatus} paymentLinkId={paymentstate} linkStatus={linkStatus} minDate={minDate} maxDate={maxDate}></CreateQuote>          </div>
           <div className="App-Footer">
           </div>
         </div></>

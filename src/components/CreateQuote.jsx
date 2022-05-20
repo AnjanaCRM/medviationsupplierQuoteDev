@@ -11,6 +11,9 @@ function CreateQuote(props) {
   const [disable, setDisable] = React.useState(false);
   const [supplierStatus, setsupplierStatus] = React.useState(false);
   const [content, setcontent] = React.useState(false);
+  const [passwordError, setpasswordError] = React.useState("");
+  let minDate=props.minDate;
+  let maxDate=props.maxDate;
 
   useEffect(() => {
     console.log("props.linkStatus" + props.linkStatus);
@@ -24,16 +27,40 @@ function CreateQuote(props) {
     AircraftType: "Jet",
     Price: 0.0,
     ProviderNotes: "",
-    NoStops: 0,
-    AddPassenger: 0,
+    NoStops: "0",
+    AddPassenger: "0",
     traveldate: "",
     DurationHour: "",
     DurationMin: "",
-    MedicalCrew: "",
+    MedicalCrew: "RN_RN",
     GroundTransport: false,
     RequestId: "",
   });
-
+const validate = (e) => {
+   console.log('form.traveldate',form.traveldate);
+  //  let fromdt = new Date(minDate);
+  //   let todt = new Date(maxDate);
+    console.log('fromdt'+minDate);
+    console.log('todt'+maxDate);
+    if (Date.parse(form.traveldate)) {
+      console.log('Date.parse(form.traveldate)'+Date.parse(form.traveldate));
+      console.log('Date.parse(minDate)'+Date.parse(minDate));
+      console.log('Date.parse(maxDate)'+Date.parse(maxDate));
+      if (Date.parse(form.traveldate) < Date.parse(minDate)) {
+          console.log('true 1');
+          setpasswordError("Travel Date should be between "+minDate+" and "+maxDate);
+          return true
+      }
+      else if (Date.parse(form.traveldate) > Date.parse(maxDate))  {
+          console.log('true 2');
+          setpasswordError("Travel Date should be between "+minDate+" and "+maxDate);
+          return true
+      }else{
+        setpasswordError(" ");
+        console.log('false');
+        return false
+      }}
+  }
   const handleFormSubmit = (e) => {
     e.preventDefault();
     let inputParams = [];
@@ -41,6 +68,7 @@ function CreateQuote(props) {
     form.SupplierId = props.SupplierId;
     form.SupplierContactId = props.SupplierContactId;
     form.paymentLinkId = props.paymentLinkId;
+    if(!validate()){
     if(!form.ExpirationHour){
       form.ExpirationHour='36';
     }
@@ -61,9 +89,10 @@ function CreateQuote(props) {
       .then((response) => response.json())
       .then((response) => {
         let status = JSON.stringify(response);
+        status = status.slice(1, -1);
         console.log(" status-->" + status);
 
-        if (status) {
+        if (status == "Success") {
           setDisable(true);
           if (props.supplierStatus == "Approved") {
             setsupplierStatus(true);
@@ -75,7 +104,7 @@ function CreateQuote(props) {
 
             // toast.success('Your Quote is submitted successfully. But, it can not be presented to the Client. Please sign-up to Medviation Platform to present your Quotes to the Client', { position: toast.POSITION.TOP_CENTER });
           }
-        } else {
+        } else if(status!= "Success") {
           toast.success("Please enter all fields", {
             position: toast.POSITION.TOP_CENTER,
           });
@@ -86,11 +115,19 @@ function CreateQuote(props) {
         //   "Your Quote is submitted successfully. But, it can not be presented to the Client. Please sign-up to Medviation Platform to present your Quotes to the Client",
         //   { position: toast.POSITION.TOP_CENTER }
         // );
+        toast.success("Please enter all fields", {
+          position: toast.POSITION.TOP_CENTER,
+        });
         console.log("err" + err);
       });
+    }
   };
 
   const onChange = (e) => {
+    // if(e.target.name == "traveldate"){
+    //   console.log('entered traveldate',e.target.name);
+    //   validate();
+    // }
     const { value, name, type, checked } = e.target;
     setForm((state) => ({
       ...state,
@@ -171,12 +208,13 @@ function CreateQuote(props) {
                 <div class="col-8 p-0">
                   <input
                     disabled={disable}
-                    type="datetime-local"
+                    type="date"
                     class="form-control"
                     name="traveldate"
                     onChange={onChange}
                     value={form.traveldate}
                   />
+                  <span className="text-danger">{passwordError}</span>
                 </div>
               </div>
               <div class="row mb-3 px-5">
@@ -225,12 +263,13 @@ function CreateQuote(props) {
                 <div class="col-8 p-0">
                   <input
                     disabled={disable}
-                    type="text"
+                    type="Number"
                     name="durationmin"
                     class="form-control"
                     onChange={onChange}
                     value={form.durationmin}
                     min="0"
+                    max="60"
                   ></input>
                 </div>
               </div>
@@ -244,6 +283,7 @@ function CreateQuote(props) {
                     type="radio"
                     name="NoStops"
                     value="0"
+                    defaultChecked
                     onChange={onChange}
                   />
                   &nbsp;1 Legs &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -285,6 +325,7 @@ function CreateQuote(props) {
                       type="radio"
                       name="AircraftType"
                       value="Jet"
+                      defaultChecked
                       onChange={onChange}
                     />&nbsp;
                     Jet &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -295,7 +336,7 @@ function CreateQuote(props) {
                       value="Turbo Prop"
                       onChange={onChange}
                     />&nbsp;
-                    Turbo&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    Turbo Prop&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                     <input
                       disabled={disable}
                       type="radio"
@@ -303,7 +344,7 @@ function CreateQuote(props) {
                       value="Rotor"
                       onChange={onChange}
                     />&nbsp;
-                    Prop
+                    Rotor
                   </div>
                 </div>
               </div>
@@ -398,6 +439,7 @@ function CreateQuote(props) {
                     type="radio"
                     name="AddPassenger"
                     value="0"
+                    defaultChecked
                     class="form-check-input"
                     onChange={onChange}
                   />
@@ -460,6 +502,7 @@ function CreateQuote(props) {
                       name="MedicalCrew"
                       class="form-check-input"
                       value="RN_RN"
+                      defaultChecked
                       onChange={onChange}
                     />
                     &nbsp;RN & RN &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
